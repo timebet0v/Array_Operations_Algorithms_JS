@@ -12,7 +12,7 @@ class Node {
 }
 
 /*
-  LINKED LIST: contains sequence of children which defined above as 'Node'...
+  SINGLE LINEAR LINKED LIST: contains sequence of children which defined above as 'Node'...
 */
 
 class LinkedList {
@@ -53,6 +53,17 @@ class LinkedList {
       p = p.next;
     }
     return len;
+  }
+
+  findMiddleNode() {
+    let p, q;
+    p = q = this.first;
+    while (q) {
+      q = q.next;
+      if (q) q = q.next;
+      if (q) p = p.next;
+    }
+    return p.data;
   }
 
   // METHOD: 'insertAt' for putting the element to the list at given position...
@@ -301,3 +312,5 @@ console.log('\n\tMERGING: C & D');
 linkListC.merge(linkListD);
 linkListC.display();
 linkListC.getLength();
+
+console.log(`MIDDLE NODE IS: ${linkListC.findMiddleNode()}`);
