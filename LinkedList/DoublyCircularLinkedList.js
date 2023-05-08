@@ -29,7 +29,7 @@ class LinkedList {
   display() {
     let p = this.head;
     do {
-      console.log(p.data);
+      process.stdout.write(`${p.data} <-> `);
       p = p.next;
     } while (p !== this.head);
   }
@@ -100,6 +100,7 @@ class LinkedList {
   }
 }
 
+// dcll -> Doubly Circular Linked List
 let A = [6, 9, 2, 7, 8];
 let dcll = new LinkedList(A, 5);
 dcll.display();

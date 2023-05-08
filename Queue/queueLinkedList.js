@@ -48,9 +48,10 @@ class QueueLL {
     if (this.isEmpty()) console.log('Queue is Empty!');
     let p = this.front;
     while (p) {
-      console.log(p.data);
+      process.stdout.write(`${p.data} <- `);
       p = p.next;
     }
+    console.log();
   }
 }
 

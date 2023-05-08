@@ -22,7 +22,7 @@ class Stack {
   display() {
     let p = this.top;
     while (p) {
-      console.log(p.data);
+      console.log(`| ${p.data} |`);
       p = p.next;
     }
   }

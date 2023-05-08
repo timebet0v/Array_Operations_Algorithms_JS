@@ -32,7 +32,7 @@ class LinkedList {
   display() {
     let h = this.head;
     do {
-      console.log(h.data);
+      process.stdout.write(`${h.data} -> `);
       h = h.next;
     } while (h != this.head);
   }

@@ -18,7 +18,7 @@ class Stack {
   }
 
   display() {
-    for (let i = this.top; i >= 0; i--) console.log(this.stack[i]);
+    for (let i = this.top; i >= 0; i--) console.log(`| ${this.stack[i]} |`);
   }
 
   push(data) {

@@ -28,7 +28,7 @@ class LinkedList {
     let p;
     p = this.first;
     while (p !== null) {
-      console.log(p.data);
+      process.stdout.write(`${p.data} <-> `);
       p = p.next;
     }
   }

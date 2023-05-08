@@ -9,12 +9,13 @@ class Queue {
   display() {
     let i = this.front + 1;
     do {
-      console.log(this.Q[i]);
+      process.stdout.write(`${this.Q[i]}`);
       if (i < this.rear) {
-        console.log(' <- ');
+        process.stdout.write(` <- `);
       }
       i = (i + 1) % this.size;
     } while (i !== (this.rear + 1) % this.size);
+    console.log();
   }
 
   isEmpty() {
@@ -46,7 +47,6 @@ class Queue {
 
 let A = [7, 15, 8, 6, 2];
 let qA = new Queue(6);
-console.log('OSY JER');
 // Queue Enqueue
 for (let i = 0; i < A.length; i++) qA.enqueue(A[i]);
 qA.display();

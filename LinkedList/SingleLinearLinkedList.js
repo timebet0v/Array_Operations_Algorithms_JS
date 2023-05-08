@@ -37,7 +37,7 @@ class LinkedList {
     let p = this.first;
 
     while (p) {
-      process.stdout.write(`${p.data}\t`);
+      process.stdout.write(`${p.data} -> `);
       p = p.next;
     }
     console.log();
