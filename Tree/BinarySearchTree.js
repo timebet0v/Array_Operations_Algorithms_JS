@@ -15,7 +15,8 @@ class BinarySearchTree {
     return this.root;
   }
 
-  insert(p, key) {
+  insert(key) {
+    let p = this.root;
     let r, temp;
     if (this.root == null) {
       temp = new Node(key);
@@ -25,13 +26,28 @@ class BinarySearchTree {
 
     while (p != null) {
       r = p;
-      if (key === p.data) return; // CHECKING FOR Duplicate
+      if (key > p.data) p = p.right; // CHECKING FOR Duplicate
       else if (key < p.data) p = p.left;
-      else p = p.right;
+      else return;
     }
 
     temp = new Node(key);
     key < r.data ? (r.left = temp) : (r.right = temp);
+  }
+
+  recursiveInsert(p, key) {
+    let temp;
+
+    if (p == null) {
+      temp = new Node(key);
+      return temp;
+    }
+    if (key < p.data) {
+      p.left = this.recursiveInsert(p.left, key);
+    } else if (key > p.data) {
+      p.right = this.recursiveInsert(p.right, key);
+    }
+    return p;
   }
 
   find(p, key) {
@@ -102,17 +118,16 @@ class BinarySearchTree {
 }
 
 // TESTING
-let root = new Node(30);
-
-let bst = new BinarySearchTree(root);
+let bst = new BinarySearchTree();
 console.log('ROOT -> ', bst.getRoot());
 
-bst.insert(bst.getRoot(), 20);
-bst.insert(bst.getRoot(), 40);
-bst.insert(bst.getRoot(), 10);
-bst.insert(bst.getRoot(), 25);
-bst.insert(bst.getRoot(), 35);
-bst.insert(bst.getRoot(), 45);
+bst.insert(20);
+bst.insert(40);
+bst.insert(10);
+bst.insert(25);
+bst.insert(35);
+bst.insert(45);
+bst.recursiveInsert(bst.getRoot(), 55);
 
 const e = bst.find(bst.getRoot(), 25);
 console.log(`Search: => ${e ? e.data : e}`);
